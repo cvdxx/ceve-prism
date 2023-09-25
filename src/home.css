@@ -2,10 +2,13 @@ body, html {
     background: #121212;
     height: 100%;
     width: 100%;
-    z-index: -2;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
 }
+
 #root {
+    z-index: 0;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -60,9 +63,11 @@ body, html {
     -webkit-text-fill-color: transparent;
     background-size: 200% 100%;
     animation: title_animation 7s linear infinite;
+    z-index: 1;
 }
 
 .footer {
+    z-index: 1;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -89,6 +94,7 @@ body, html {
 
 
 small {
+    z-index: 1;
     font-family: 'Poppins', sans-serif;
     font-weight: 590;
     font-size: 5vh;
@@ -103,6 +109,7 @@ small {
 }
 
 #things {
+    z-index: 1;
     font-family: 'Poppins', sans-serif;
     font-weight: 590;
     font-size: 5vh;
@@ -119,12 +126,14 @@ small {
 }
 
 .tryout-container {
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #tryout {
+    z-index: 1;
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     font-size: 3.7vh;
@@ -142,6 +151,7 @@ small {
 }
 
 .topnav {
+    z-index: 1;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -149,6 +159,7 @@ small {
 }
 
 a {
+    z-index: 1;
     text-decoration: none;
     padding: 10px 20px; /* Button padding */
     border-radius: 30px; /* Button border radius */
@@ -159,12 +170,14 @@ a:hover {
 }
 
 button-container {
+    z-index: 1;
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: center;
 }
 .button-right {
+    z-index: 1;
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
     border-radius: 30px;
