@@ -1,0 +1,196 @@
+body {
+    background: #121212;
+}
+
+@keyframes title_animation {
+    0%, 100% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+}
+
+@keyframes border_animation {
+    0% {
+        border-color: #ff3399;
+    }
+
+    20% {
+        border-color: #FF9C33;
+    }
+
+    40% {
+        border-color: #FCFF33;
+    }
+
+    60% {
+        border-color: #70FF33;
+    }
+
+    80% {
+        border-color: #33EEFF;
+    }
+
+    90% {
+        border-color: #D333FF;
+    }
+    100% {
+        border-color: #FF3399;
+    }
+}
+#title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10vh;
+    text-decoration: none;
+    margin: 0 auto;
+    margin-bottom: -1%;
+    text-align: center;
+    background: #1CE1FF;
+    background: linear-gradient(to right, #3CD6E7, #F79DFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    animation: title_animation 7s linear infinite;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 5px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 2.9vh;
+    background: rgba(0, 0, 0, 0.9);
+    background: linear-gradient(to right, #1CE1FF 0%, #F2B4CE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes rainbow_animation {
+    0%, 100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+}
+
+
+small {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 590;
+    font-size: 5vh;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background: linear-gradient(45deg, red, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    animation: rainbow_animation 5s linear infinite, glow_animation 5s linear infinite;
+}
+
+#things {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 590;
+    font-size: 5vh;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-bottom: 3%;
+    background-size: 400% 100%;
+    color: transparent;
+    animation: rainbow_animation 5s ease-in-out infinite;
+}
+
+.tryout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tryout {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 3.7vh;
+    padding: 0.6% 1.5%;
+    border-radius: 20px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 3px solid transparent;
+    object-position: relative;
+    animation: border_animation 5s linear infinite; /* Add the rainbow animation */
+}
+#tryout:hover {
+    opacity: 0.8;
+}
+.topnav {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    padding: 10px 20px; /* Button padding */
+    border-radius: 30px; /* Button border radius */
+    transition: background-color 0.3s ease; /* Add a smooth hover effect */
+}
+a:hover {
+    background-color: #121213; /* Change the background color on hover */
+}
+
+button-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.button-right {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0.8% 1%;
+    text-decoration: none;
+    background: linear-gradient(to right, #7ECCFD 0%, #80B7FF 100%) border-box;
+    border: 1px solid transparent;
+    font-size: 17px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #121212;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+#root {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 6vh;
+    }
+    small {
+        font-size: 3.2vh;
+    }
+    
+}   
