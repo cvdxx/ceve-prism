@@ -7,7 +7,7 @@ body, html {
 #root {
     height: 100%;
     width: 100%;
-    position: fixed;
+    position: absolute;
 }
 @keyframes title_animation {
     0%, 100% {
