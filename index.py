@@ -1,9 +1,9 @@
 # import necessary modules
 from flask import Flask, render_template, request
 import openai
-
+import os
 # Configure your OpenAI API key
-api_key = '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'
+api_key = os.environ.get("OPENAI_KEY")
 openai.api_key = api_key
 
 # Initialize the Flask app
