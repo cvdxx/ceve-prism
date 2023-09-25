@@ -2,7 +2,6 @@ body, html {
     background: #121212;
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 
 @keyframes title_animation {
@@ -182,16 +181,8 @@ button-container {
     background-color: #04AA6D;
     color: white;
 }
-#root {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: #121212;
-    overflow: hidden;
-}
+
+html,body,#root {width: 100%;height: 100%;margin: 0;padding: 0;}
 
 @media screen and (max-width: 800px) {
     h1 {
