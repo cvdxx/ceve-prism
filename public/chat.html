@@ -79,48 +79,6 @@
         }
       }
     </script>
-    <script>
-        document.getElementById('send-button').addEventListener('click', function(event) {
-          event.preventDefault(); // Prevent the default form submission behavior
-
-          var userMessage = document.getElementById('user-input').value;
-
-          // Display the user's message in the chatbox
-          var userMessageDiv = document.createElement('div');
-          userMessageDiv.className = 'user-message';
-          userMessageDiv.textContent = userMessage; // Use textContent to prevent HTML injection
-          document.getElementById('chat-container').appendChild(userMessageDiv);
-
-          // Clear the input field
-          document.getElementById('user-input').value = '';
-          
-          // Send the user's message to the server for AI response
-          fetch('/get_response', {
-            method: 'POST',
-            body: new URLSearchParams({ 'user_message': userMessage }),
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-          })
-          .then(response => response.text())
-          .then(aiResponse => {
-            // Display the AI's response in the chatbox with typewriter effect
-            var aiMessageDiv = document.createElement('div');
-            aiMessageDiv.className = 'ai-message';
-            document.getElementById('chat-container').appendChild(aiMessageDiv);
-
-            var index = 0;
-            function typeWriter() {
-              if (index < aiResponse.length) {
-                aiMessageDiv.textContent += aiResponse.charAt(index);
-                index++;
-                setTimeout(typeWriter, 12); // Adjust the typing speed (milliseconds per character)
-              }
-            }
-
-            typeWriter(); // Start the typewriter effect
-          });
-        });
-    </script>
+    <script src="/src/openai.js"></script>
 </body>
 </html>
