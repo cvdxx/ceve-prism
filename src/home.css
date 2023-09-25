@@ -186,6 +186,7 @@ button-container {
     height: 100%;
     margin: 0 auto;
     padding: 0;
+    position: fixed;
 }
 @media screen and (max-width: 800px) {
     h1 {
