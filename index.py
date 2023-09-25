@@ -14,7 +14,7 @@ app = Flask(__name__)
 def chat_page():
     return render_template('home.html')
 
-@app.route('/home')
+@app.route('/chat')
 def code_page():
     return render_template('chat.html')
 
