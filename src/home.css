@@ -169,7 +169,7 @@ a:hover {
     background-color: #121213; /* Change the background color on hover */
 }
 
-#button-container {
+.button-container {
     z-index: 1;
     display: flex;
     align-content: center;
