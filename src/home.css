@@ -1,7 +1,9 @@
 body {
     background: #121212;
 }
-
+html, body {
+    height: 100%;
+}
 @keyframes title_animation {
     0%, 100% {
         background-position: 0 0;
