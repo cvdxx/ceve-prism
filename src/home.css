@@ -42,6 +42,7 @@ body, html {
     }
 }
 #title {
+    position: fixed;
     font-family: 'Poppins', sans-serif;
     font-size: 10vh;
     text-decoration: none;
@@ -83,6 +84,7 @@ body, html {
 
 
 small {
+    position: fixed;
     font-family: 'Poppins', sans-serif;
     font-weight: 590;
     font-size: 5vh;
@@ -97,6 +99,7 @@ small {
 }
 
 #things {
+    position: fixed;
     font-family: 'Poppins', sans-serif;
     font-weight: 590;
     font-size: 5vh;
@@ -113,12 +116,14 @@ small {
 }
 
 .tryout-container {
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #tryout {
+    position: fixed;
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     font-size: 3.7vh;
@@ -142,6 +147,7 @@ small {
 }
 
 a {
+    position: fixed;
     text-decoration: none;
     padding: 10px 20px; /* Button padding */
     border-radius: 30px; /* Button border radius */
