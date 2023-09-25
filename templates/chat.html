@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CeVe</title>
+       <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="title" content="CeVe">
+        <meta name="author" content="Your Name">
+        <meta name="description" content="Website for Easy to Access Utilities" />
+        <meta property="og:image" content="https://cdn.discordapp.com/attachments/1027350370315423784/1076727088406614136/CeVeLogo.png">
+        <link rel="icon" type="image/x-icon" href="/static/assets/CeVeLogoWhite.png" />    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="topnav">
+        <h1 id="title"><a href="/home">CeVe Talks Beta</a></h1>
+    </div>
+    <div id="buttons">
+        <div class="button-container">
+            <small>Ask the All-Knowing!</small>
+            <div class="dropdown">
+                <a><button onclick="myFunction()" class="my-button">Ideas</button></a>
+                <div id="myDropdown" class="dropdown-content">
+                    <a class="prompt">Make a Python Script for a Lemonade Stand, you can pay money and add the total up.</a>
+                    <a class="prompt">Write me a 4 line poem about a brilliant inventor.</a>
+                    <a class="prompt">Give me a Fortune 500 Company in every field of Engineering.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="chat-box">
+        <div id="chat-container">
+        <!-- Chat messages will be displayed here -->
+        </div>
+    </div>
+    <div id="container">
+        <textarea name="prompt" id="user-input" placeholder="Type your message..."></textarea>
+        <button id="send-button"><img src="/static/assets/CeVeLogoWhite.png"></button>
+    </div>
+    <div class="footer">
+        CeVe Solutions &copy;2023
+    </div>
+    <script type="text/javascript">
+      document.getElementById("tryout").onclick = function () {
+          location.href = "/home";
+      };
+    </script>
+    <script>
+        const hiBtns = document.querySelectorAll('.prompt');
+        const textarea = document.querySelector('textarea[name="prompt"]');
+
+        hiBtns.forEach(function(hiBtn) {
+          hiBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // prevent the default form submission
+            textarea.value += hiBtn.textContent; // add the text content of the button to the existing text in the textarea
+          });
+        });
+    </script>
+    <script>
+        function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.my-button')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+        document.getElementById('send-button').addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent the default form submission behavior
+
+          var userMessage = document.getElementById('user-input').value;
+
+          // Display the user's message in the chatbox
+          var userMessageDiv = document.createElement('div');
+          userMessageDiv.className = 'user-message';
+          userMessageDiv.textContent = userMessage; // Use textContent to prevent HTML injection
+          document.getElementById('chat-container').appendChild(userMessageDiv);
+
+          // Clear the input field
+          document.getElementById('user-input').value = '';
+
+          // Send the user's message to the server for AI response
+          fetch('/get_response', {
+            method: 'POST',
+            body: new URLSearchParams({ 'user_message': userMessage }),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          })
+          .then(response => response.text())
+          .then(aiResponse => {
+            // Display the AI's response in the chatbox with typewriter effect
+            var aiMessageDiv = document.createElement('div');
+            aiMessageDiv.className = 'ai-message';
+            document.getElementById('chat-container').appendChild(aiMessageDiv);
+
+            var index = 0;
+            function typeWriter() {
+              if (index < aiResponse.length) {
+                aiMessageDiv.textContent += aiResponse.charAt(index);
+                index++;
+                setTimeout(typeWriter, 12); // Adjust the typing speed (milliseconds per character)
+              }
+            }
+
+            typeWriter(); // Start the typewriter effect
+          });
+        });
+    </script>
+</body>
+</html>
